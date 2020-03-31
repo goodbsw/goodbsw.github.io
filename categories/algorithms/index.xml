@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts</title>
-    <link>https://goodbsw.github.io/</link>
-    <description>Recent content on Posts</description>
+    <title>algorithms on Posts</title>
+    <link>https://goodbsw.github.io/categories/algorithms/</link>
+    <description>Recent content in algorithms on Posts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>goodbsw@gmail.com (Heungkyu)</managingEditor>
     <webMaster>goodbsw@gmail.com (Heungkyu)</webMaster>
     <lastBuildDate>Tue, 31 Mar 2020 15:05:50 +0900</lastBuildDate>
     
-	<atom:link href="https://goodbsw.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://goodbsw.github.io/categories/algorithms/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

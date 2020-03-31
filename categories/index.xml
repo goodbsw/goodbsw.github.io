@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Heungkyu</title>
+    <title>Categories on Posts</title>
     <link>https://goodbsw.github.io/categories/</link>
-    <description>Recent content in Categories on Heungkyu</description>
+    <description>Recent content in Categories on Posts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>goodbsw@gmail.com (Heungkyu)</managingEditor>
+    <webMaster>goodbsw@gmail.com (Heungkyu)</webMaster>
+    <lastBuildDate>Tue, 31 Mar 2020 15:05:50 +0900</lastBuildDate>
     
 	<atom:link href="https://goodbsw.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>algoExpert</title>
+      <link>https://goodbsw.github.io/categories/algoexpert/</link>
+      <pubDate>Tue, 31 Mar 2020 15:05:50 +0900</pubDate>
+      <author>goodbsw@gmail.com (Heungkyu)</author>
+      <guid>https://goodbsw.github.io/categories/algoexpert/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>algorithms</title>
+      <link>https://goodbsw.github.io/categories/algorithms/</link>
+      <pubDate>Tue, 31 Mar 2020 15:05:50 +0900</pubDate>
+      <author>goodbsw@gmail.com (Heungkyu)</author>
+      <guid>https://goodbsw.github.io/categories/algorithms/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
