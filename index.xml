@@ -8,10 +8,19 @@
     <language>en-us</language>
     <managingEditor>goodbsw@gmail.com (Heungkyu)</managingEditor>
     <webMaster>goodbsw@gmail.com (Heungkyu)</webMaster>
-    <lastBuildDate>Tue, 31 Mar 2020 15:05:50 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 02 Apr 2020 20:58:48 +0900</lastBuildDate>
     
 	<atom:link href="https://goodbsw.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linkedlist</title>
+      <link>https://goodbsw.github.io/programming/linkedlist/</link>
+      <pubDate>Thu, 02 Apr 2020 20:58:48 +0900</pubDate>
+      <author>goodbsw@gmail.com (Heungkyu)</author>
+      <guid>https://goodbsw.github.io/programming/linkedlist/</guid>
+      <description>1. Code package main type Node struct { value int next, prev *Node } type DoublyLinkedList struct { head, tail *Node } func NewDoublyLinkedList() { return &amp;amp;DoublyLinkedList{} } // O(1) time complexity | O(1) space complexity func (ll *DoublyLinkedList) setHead(node *Node) { if ll.head == nil { ll.head = node ll.tail = node return } ll.insertBefore(ll.head, node) } // O(1) time complexity | O(1) space complexity func (ll *DoublyLinkedList) setTail(node *Node) { if ll.</description>
+    </item>
     
     <item>
       <title>Depth First Search</title>

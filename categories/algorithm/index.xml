@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Programmings on Posts</title>
-    <link>https://goodbsw.github.io/programming/</link>
-    <description>Recent content in Programmings on Posts</description>
+    <title>algorithm on Posts</title>
+    <link>https://goodbsw.github.io/categories/algorithm/</link>
+    <description>Recent content in algorithm on Posts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>goodbsw@gmail.com (Heungkyu)</managingEditor>
     <webMaster>goodbsw@gmail.com (Heungkyu)</webMaster>
     <lastBuildDate>Thu, 02 Apr 2020 20:58:48 +0900</lastBuildDate>
     
-	<atom:link href="https://goodbsw.github.io/programming/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://goodbsw.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,15 +20,6 @@
       <author>goodbsw@gmail.com (Heungkyu)</author>
       <guid>https://goodbsw.github.io/programming/linkedlist/</guid>
       <description>1. Code package main type Node struct { value int next, prev *Node } type DoublyLinkedList struct { head, tail *Node } func NewDoublyLinkedList() { return &amp;amp;DoublyLinkedList{} } // O(1) time complexity | O(1) space complexity func (ll *DoublyLinkedList) setHead(node *Node) { if ll.head == nil { ll.head = node ll.tail = node return } ll.insertBefore(ll.head, node) } // O(1) time complexity | O(1) space complexity func (ll *DoublyLinkedList) setTail(node *Node) { if ll.</description>
-    </item>
-    
-    <item>
-      <title>Depth First Search</title>
-      <link>https://goodbsw.github.io/programming/first_post/</link>
-      <pubDate>Tue, 31 Mar 2020 15:05:50 +0900</pubDate>
-      <author>goodbsw@gmail.com (Heungkyu)</author>
-      <guid>https://goodbsw.github.io/programming/first_post/</guid>
-      <description>1. Code type Node { Name string Children []*Node } func (n *Node) DepthFirstSearch(array []string) []string { array = append(array, n.Name) for _, child := range n.Children { array = child.DepthFirstSearch(array) } return array } 2. Time and Space Complexity  Time Complexity: O(V+E) Where V is the number of nodes and E is line connecting between nodes Space Complexity: O(V) Where V is the number of nodes  3. Thing I Learned Today  Almost get how recursive function works  </description>
     </item>
     
   </channel>
