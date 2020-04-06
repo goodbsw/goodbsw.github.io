@@ -8,10 +8,20 @@
     <language>en-us</language>
     <managingEditor>goodbsw@gmail.com (Heungkyu)</managingEditor>
     <webMaster>goodbsw@gmail.com (Heungkyu)</webMaster>
-    <lastBuildDate>Thu, 02 Apr 2020 20:58:48 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 06 Apr 2020 13:01:13 +0900</lastBuildDate>
     
 	<atom:link href="https://goodbsw.github.io/categories/algoexpert/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Fibonacci</title>
+      <link>https://goodbsw.github.io/programming/fibonacci/</link>
+      <pubDate>Mon, 06 Apr 2020 13:01:13 +0900</pubDate>
+      <author>goodbsw@gmail.com (Heungkyu)</author>
+      <guid>https://goodbsw.github.io/programming/fibonacci/</guid>
+      <description>1. Code Codes are seperated into 3 parts according to Big-O notation for this time.
+  O(2^n) time complexity | O(n) space complexity func GetNthFib(n int) int { if n == 1 { return 0 } else if n == 2 { return 1 } return GetNthFib(n-1) + GetNthFib(n-2) }   This approach is very typical and the easiest way of solving fibonacci algorithms. Combination of typical and easiest means not effective by the way.</description>
+    </item>
     
     <item>
       <title>Linkedlist</title>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fibonacci  | Posts</title>
+  <meta name="description" content="Trying not to be a bad software engineer 'Fibonacci'read this article.">
+  <meta property="og:title" content="Fibonacci">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2020-04-06">
+  
+  <meta property="og:description" content="Trying not to be a bad software engineer 'Fibonacci'read this article.">
+  <meta property="og:url" content="https://goodbsw.github.io/programming/fibonacci/">
+  <meta property="og:site_name" content="Posts">
+  
+  <meta property="og:image" content="https://www.researchgate.net/profile/Tao_Schardl/publication/278965757/figure/fig1/AS:467532499951616@1488479842204 Cilk-pseudocode-for-a-recursive-program-to-compute-Fibonacci-numbers-main.png">
+  
+  
+  <meta property="og:tags" content="Programming Language - GO">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://goodbsw.github.io/programming/fibonacci/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+</head>
+<body>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="34px" />
+      </a>
+    </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#Posts</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
+    </div>
+  </div>
+  <div class="container">    
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://goodbsw.github.io/programming/fibonacci/">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>Monday, Apr 6, 2020 13:01</time>
+        <h1>Fibonacci</h1>
+      </div>
+    </a>
+  </div>
+  
+  <section class="post-content">
+    <h1 id="1-code">1. Code</h1>
+<p><em>Codes are seperated into 3 parts according to Big-O notation for this time.</em></p>
+<ul>
+<li>
+<h2 id="o2n-time-complexity--on-space-complexity">O(2^n) time complexity | O(n) space complexity</h2>
+<pre><code>func GetNthFib(n int) int {
+    if n == 1 {
+        return 0
+    } else if n == 2 {
+        return 1
+    }
+    return GetNthFib(n-1) + GetNthFib(n-2)
+}
+</code></pre></li>
+<li>
+<p>This approach is very typical and the easiest way of solving fibonacci algorithms. Combination of typical and easiest means not effective by the way.</p>
+</li>
+<li>
+<p><strong>Time Complexity =&gt;</strong> Each states(except GetNthFib(1) and GetNthFib(2)) generates additional two recursive GetNthFib() which makes O(2^n) time complexity</p>
+</li>
+<li>
+<p><strong>Space Complexity =&gt;</strong> When we think of space complexity of recursive algorithms, we need to understand how the stack frames are generated in memory for recursive call sequence.
+Someone might be wondering &ldquo;Why it has space complexity when we don&rsquo;t store anything?&rdquo; In recursive algorithms, stack frames are generated for recursive functions and that is using up memories. For example, when we call GetNthFib(6), GetNthFib(6) goes to the bottome of call stack and GetNthFib(5) goes above and keep going that way. Functions in the stack are kept in the memory until the function above gets return. After base GetNthFib goes top of the call stack, every function are called from top to bottom. Therefore, the n of function in the stack frames affects space complexity.</p>
+</li>
+<li>
+<h2 id="on-time-complexity--on-space-complexity">O(n) time complexity | o(n) space complexity</h2>
+<pre><code>func GetNthFib(n int) int {
+    return handler(n, map[int]int{
+        1: 0,
+        2: 1,
+    })
+}
+
+func handler(n int, memoize map[int]int) int {
+    if val, ok := memoize[n]; ok {
+        return val
+    }
+    memoize[n] = handler(n-1, memoize) + handler(n-2, memoize)
+    return memoize[n]
+}
+</code></pre></li>
+<li>
+<p><strong>Time Complexity =&gt;</strong> This approach is using hash table to be more effective in the sence of time complexity. Each values are memoized so that the function needless to be called if it has value in the hash table.</p>
+</li>
+<li>
+<p><strong>Space Complexity =&gt;</strong> n of the value are stored in the hash table</p>
+</li>
+<li>
+<h2 id="on-time-complexity--o1-space-complexity">O(n) time complexity | O(1) space complexity</h2>
+<pre><code>func GetNthFib(n int) int {
+    lastTwo := []int{0, 1}
+    counter := 3
+    for counter &lt;= n {
+        newFib := lastTwo[0] + lastTwo[1]
+        lastTwo = []int{lastTwo[1], newFib}
+        counter++
+    }
+    if n &gt; 1 {
+        return lastTwo[1]
+    } else {
+        return lastTwo[0]
+    }
+}
+</code></pre></li>
+<li>
+<p><strong>Time Complexity =&gt;</strong> Simple.</p>
+</li>
+<li>
+<p><strong>Space Complexity =&gt;</strong> This approach is more effective in the sense of space time complexity. No need to store additionally in the slice.</p>
+</li>
+</ul>
+
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fgoodbsw.github.io%2fprogramming%2ffibonacci%2f&t=Fibonacci"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fgoodbsw.github.io%2fprogramming%2ffibonacci%2f&text=Fibonacci&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fgoodbsw.github.io%2fprogramming%2ffibonacci%2f&title=Fibonacci"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fgoodbsw.github.io%2fprogramming%2ffibonacci%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
+    <div class="desc">
+      Friendly
+      
+      <a href="mailto:goodbsw@gmail.com">Heungkyu</a>
+      
+      wrotes this article at
+      <span class="highlight">Monday, Apr 6, 2020 13:01</span> 
+      for you.
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">_Categories</span>
+        
+        
+        <a href="https://goodbsw.github.io//categories/algorithms">#algorithms</a>
+        
+        <a href="https://goodbsw.github.io//categories/algoexpert">#algoExpert</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_Tags</span>
+        
+        
+        <a href="https://goodbsw.github.io/tags/programming-language-go">#Programming Language - GO</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <div class="post-comment">    
+        
+  </div>
+  
+  <div class="recommend-articles">
+    Recommend these articles
+    <ul>
+      
+      <li>
+        <a href="https://goodbsw.github.io/programming/linkedlist/" rel="prev">
+          <span>Linkedlist</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
+</div>
+<footer class="footer">
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
+</footer>
+</body>
+</html>
+
