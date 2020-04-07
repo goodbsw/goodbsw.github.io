@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product_sum  | Posts</title>
+  <meta name="description" content="Trying not to be a bad software engineer 'Product_sum'read this article.">
+  <meta property="og:title" content="Product_sum">
+  
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2020-04-07">
+  
+  <meta property="og:description" content="Trying not to be a bad software engineer 'Product_sum'read this article.">
+  <meta property="og:url" content="https://goodbsw.github.io/programming/product_sum/">
+  <meta property="og:site_name" content="Posts">
+  
+  <meta property="og:image" content="https://rishabh1403.com/static/9170053046c6e393d5e392a849b15e33/c108b/simple-array-sum.jpg">
+  
+  
+  <meta property="og:tags" content="Programming Language - GO">
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="canonical" href="https://goodbsw.github.io/programming/product_sum/">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  
+  
+  <script type="text/javascript">
+  function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.className === 'menu')
+      e.className = 'menu hidden';
+    else
+      e.className = 'menu';
+  }
+  </script>
+</head>
+<body>
+  <div class="navbar">    
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" height="34px" />
+      </a>
+    </div>
+    <div class="burger">
+      <button onclick="toggle_visibility('menu')">
+        <i class="fa fa-bars" aria-hidden="true"></i> Menu
+      </button>
+    </div>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="/">#Posts</a></li>
+        <li><a href="/categories">#Categories</a></li>
+        <li><a href="/tags">#Tags</a></li>
+        <li><a href="/projects">#Projects</a></li>        
+      </ul>
+      <input class="search" id="search-input" type="search" placeholder="Keyword" value="">
+    </div>
+  </div>
+  <div class="container">    
+
+<div class="post">
+  <div class="post-title">
+    <a href="https://goodbsw.github.io/programming/product_sum/">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>Tuesday, Apr 7, 2020 17:11</time>
+        <h1>Product_sum</h1>
+      </div>
+    </a>
+  </div>
+  
+  <section class="post-content">
+    <h1 id="1-code">1. Code</h1>
+<pre><code>type SpecialArray []interface{}
+
+func ProductSum(array []interface{}) int {
+    return helper(array, 1)
+}
+
+func helper(array SpecialArray, multiplier int) int {
+    sum := 0
+    for _, el := range array {
+        if cast, ok := el.(SpecialArray); ok {
+            sum += helper(cast, multiplier+1)
+        } else if cast, ok := el.(int); ok {
+            sum += cast
+        }
+    }
+    return counter * sum
+}
+</code></pre><h1 id="2-conceptual-overview">2. Conceptual Overview</h1>
+<h2 id="time-complexity-on"><strong>Time Complexity:</strong> O(n)</h2>
+<ul>
+<li>It is really important to specify what n is. It is wrong just to say n is the number of element in the array passed in. The n is the total number of element including the subarray. Let&rsquo;s say we have [1, 2, [3, 4], 5]. The total number of n is 6 not just 4. We have to consider subarray as well as the elements in the subarray</li>
+</ul>
+<h2 id="space-complexity-od"><strong>Space Complexity:</strong> O(d)</h2>
+<ul>
+<li>Since this algorithm is using recursive function, we have to take call stacks into consideration. We can decide how many call stacks by the depth of arrays. Fore example, the array mentioned above has 2 depth of arrays.</li>
+</ul>
+
+  </section>
+  <div class="share">    
+    <a
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fgoodbsw.github.io%2fprogramming%2fproduct_sum%2f&t=Product_sum"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-facebook"></i
+    ></a>
+    <a
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fgoodbsw.github.io%2fprogramming%2fproduct_sum%2f&text=Product_sum&tw_p=tweetbutton"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-twitter"></i
+    ></a>
+    <a
+      href="//getpocket.com/edit?url=https%3a%2f%2fgoodbsw.github.io%2fprogramming%2fproduct_sum%2f&title=Product_sum"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-get-pocket"></i
+    ></a>
+    <a
+      href="//plus.google.com/share?url=https%3a%2f%2fgoodbsw.github.io%2fprogramming%2fproduct_sum%2f"
+      onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
+      ><i class="fa fa-google-plus"></i
+    ></a>
+  </div>
+  <div class="post-meta-code">
+    <div class="desc">
+      Friendly
+      
+      <a href="mailto:goodbsw@gmail.com">Heungkyu</a>
+      
+      wrotes this article at
+      <span class="highlight">Tuesday, Apr 7, 2020 17:11</span> 
+      for you.
+    </div>
+    <div class="desc">
+      
+      <div class="desc">
+        <span class="fixed-desc">_Categories</span>
+        
+        
+        <a href="https://goodbsw.github.io//categories/algorithm">#algorithm</a>
+        
+        <a href="https://goodbsw.github.io//categories/algoexpert">#algoExpert</a>
+        
+      </div>
+      
+      <div class="desc">
+        <span class="fixed-desc">_Tags</span>
+        
+        
+        <a href="https://goodbsw.github.io/tags/programming-language-go">#Programming Language - GO</a>
+        
+        
+      </div>
+    </div>
+  </div>  
+  
+  <div class="post-comment">    
+        
+  </div>
+  
+  <div class="recommend-articles">
+    Recommend these articles
+    <ul>
+      
+      <li>
+        <a href="https://goodbsw.github.io/programming/fibonacci/" rel="prev">
+          <span>Fibonacci</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+<div class="go-top">
+  <a href="#" class="go-top-button">
+    <i class="fa fa-angle-double-up"></i>
+    <span>Top</span>
+  </a>
+</div>
+<footer class="footer">
+  COPYRIGHT (C) <a href="https://blog.lulab.net">DONGGEUN,BANG (LUBANG).</a><br />
+  ALL RIGHTS RESERVED.
+</footer>
+</body>
+</html>
+
