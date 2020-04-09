@@ -3,24 +3,24 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product_sum  | Posts</title>
-  <meta name="description" content="Trying not to be a bad software engineer 'Product_sum'read this article.">
-  <meta property="og:title" content="Product_sum">
+  <title>Binary_search  | Posts</title>
+  <meta name="description" content="Trying not to be a bad software engineer 'Binary_search'read this article.">
+  <meta property="og:title" content="Binary_search">
   
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2020-04-07">
+  <meta property="article:published_time" content="2020-04-09">
   
-  <meta property="og:description" content="Trying not to be a bad software engineer 'Product_sum'read this article.">
-  <meta property="og:url" content="https://goodbsw.github.io/programming/product_sum/">
+  <meta property="og:description" content="Trying not to be a bad software engineer 'Binary_search'read this article.">
+  <meta property="og:url" content="https://goodbsw.github.io/programming/binary_search/">
   <meta property="og:site_name" content="Posts">
   
-  <meta property="og:image" content="https://rishabh1403.com/static/9170053046c6e393d5e392a849b15e33/c108b/simple-array-sum.jpg">
+  <meta property="og:image" content="https://cdn-images-1.medium.com/max/1024/1*DOR__3reJYPwGuyytG520g.jpeg">
   
   
   <meta property="og:tags" content="Programming Language - GO">
   
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="canonical" href="https://goodbsw.github.io/programming/product_sum/">
+  <link rel="canonical" href="https://goodbsw.github.io/programming/binary_search/">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap">
@@ -66,63 +66,63 @@
 
 <div class="post">
   <div class="post-title">
-    <a href="https://goodbsw.github.io/programming/product_sum/">
+    <a href="https://goodbsw.github.io/programming/binary_search/">
       <img src="/images/post-title-icon.png" />
       <div class="post-meta">
-        <time>Tuesday, Apr 7, 2020 17:11</time>
-        <h1>Product_sum</h1>
+        <time>Thursday, Apr 9, 2020 13:19</time>
+        <h1>Binary_search</h1>
       </div>
     </a>
   </div>
   
   <section class="post-content">
     <h1 id="1-code">1. Code</h1>
-<pre><code>type SpecialArray []interface{}
-
-func ProductSum(array []interface{}) int {
-    return helper(array, 1)
+<pre><code>func BinarySearch(array []int, target int) int {
+    return helper(array, target, 0, len(array)-1)
 }
 
-func helper(array SpecialArray, multiplier int) int {
-    sum := 0
-    for _, el := range array {
-        if cast, ok := el.(SpecialArray); ok {
-            sum += helper(cast, multiplier+1)
-        } else if cast, ok := el.(int); ok {
-            sum += cast
-        }
+func helper(array []int, target, left, right int) int {
+    if left &gt; right {
+        return -1
     }
-    return counter * sum
+    middle := (left + right) / 2
+    potentialMatch := array[middle]
+    if target == potentialMatch {
+        return middle
+    } else if target &gt; potentialMatch {
+        return helper(array, target, middle+1, right)
+    }
+    return helper(array, target, left, middle-1)
 }
 </code></pre><h1 id="2-conceptual-overview">2. Conceptual Overview</h1>
-<h2 id="time-complexity-on"><strong>Time Complexity:</strong> O(n)</h2>
+<h2 id="time-complexity-ologn"><strong>Time Complexity: O(log(n))</strong></h2>
 <ul>
-<li>It is really important to specify what n is. It is wrong just to say n is the number of element in the array passed in. The n is the total number of element including the subarray. Let&rsquo;s say we have [1, 2, [3, 4], 5]. The total number of n is 6 not just 4. We have to consider subarray as well as the elements in the subarray</li>
+<li>Time complexity of using binary search algorithms is O(log(n)) because we traverse the half of the array when the target isn&rsquo;t found at the given half.</li>
 </ul>
-<h2 id="space-complexity-od"><strong>Space Complexity:</strong> O(d)</h2>
+<h2 id="space-complexity-ologn"><strong>Space Complexity: O(log(n))</strong></h2>
 <ul>
-<li>Since this algorithm is using recursive function, we have to take call stacks into consideration. We can decide how many call stacks by the depth of arrays. Fore example, the array mentioned above has 2 depth of arrays.</li>
+<li>Recursive function is called when we traverse the half of the array, so memory usage on the call stacks is followed by the call</li>
 </ul>
 
   </section>
   <div class="share">    
     <a
-      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fgoodbsw.github.io%2fprogramming%2fproduct_sum%2f&t=Product_sum"
+      href="//www.facebook.com/sharer.php?src=bm&u=https%3a%2f%2fgoodbsw.github.io%2fprogramming%2fbinary_search%2f&t=Binary_search"
       onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
       ><i class="fa fa-facebook"></i
     ></a>
     <a
-      href="//twitter.com/intent/tweet?url=https%3a%2f%2fgoodbsw.github.io%2fprogramming%2fproduct_sum%2f&text=Product_sum&tw_p=tweetbutton"
+      href="//twitter.com/intent/tweet?url=https%3a%2f%2fgoodbsw.github.io%2fprogramming%2fbinary_search%2f&text=Binary_search&tw_p=tweetbutton"
       onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
       ><i class="fa fa-twitter"></i
     ></a>
     <a
-      href="//getpocket.com/edit?url=https%3a%2f%2fgoodbsw.github.io%2fprogramming%2fproduct_sum%2f&title=Product_sum"
+      href="//getpocket.com/edit?url=https%3a%2f%2fgoodbsw.github.io%2fprogramming%2fbinary_search%2f&title=Binary_search"
       onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
       ><i class="fa fa-get-pocket"></i
     ></a>
     <a
-      href="//plus.google.com/share?url=https%3a%2f%2fgoodbsw.github.io%2fprogramming%2fproduct_sum%2f"
+      href="//plus.google.com/share?url=https%3a%2f%2fgoodbsw.github.io%2fprogramming%2fbinary_search%2f"
       onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"
       ><i class="fa fa-google-plus"></i
     ></a>
@@ -134,7 +134,7 @@ func helper(array SpecialArray, multiplier int) int {
       <a href="mailto:goodbsw@gmail.com">Heungkyu</a>
       
       wrotes this article at
-      <span class="highlight">Tuesday, Apr 7, 2020 17:11</span> 
+      <span class="highlight">Thursday, Apr 9, 2020 13:19</span> 
       for you.
     </div>
     <div class="desc">
@@ -169,17 +169,11 @@ func helper(array SpecialArray, multiplier int) int {
     <ul>
       
       <li>
-        <a href="https://goodbsw.github.io/programming/fibonacci/" rel="prev">
-          <span>Fibonacci</span>
+        <a href="https://goodbsw.github.io/programming/product_sum/" rel="prev">
+          <span>Product_sum</span>
         </a>
       </li>
       
-      
-      <li>
-        <a href="https://goodbsw.github.io/programming/binary_search/" rel="next">
-          <span>Binary_search</span>
-        </a>
-      </li>
       
     </ul>
   </div>

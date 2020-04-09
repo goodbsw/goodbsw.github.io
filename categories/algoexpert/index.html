@@ -65,6 +65,33 @@
   
   <div class="post">
   <div class="post-title">
+    <a href="https://goodbsw.github.io/programming/binary_search/" title="Binary_search">
+      <img src="/images/post-title-icon.png" />
+      <div class="post-meta">
+        <time>Thursday, Apr 9, 2020 13:19</time>
+        <h1>Binary_search</h1>
+      </div>
+    </a>
+  </div>
+  
+  <div class="cover-image">
+    <a href="https://goodbsw.github.io/programming/binary_search/" title="Binary_search">
+      <img src="https://cdn-images-1.medium.com/max/1024/1*DOR__3reJYPwGuyytG520g.jpeg" />
+    </a>
+  </div>
+  
+  <div>
+    1. Code func BinarySearch(array []int, target int) int { return helper(array, target, 0, len(array)-1) } func helper(array []int, target, left, right int) int { if left &gt; right { return -1 } middle := (left + right) / 2 potentialMatch := array[middle] if target == potentialMatch { return middle } else if target &gt; potentialMatch { return helper(array, target, middle+1, right) } return helper(array, target, left, middle-1) } 2. Conceptual Overview Time Complexity: O(log(n))  Time complexity of using binary search algorithms is O(log(n)) because we traverse the half of the array when the target isn&rsquo;t found at the given half.
+    
+    <a href="/programming/binary_search/" class="summary-more">More</a>
+    
+  </div>
+</div>
+
+  <hr class="summary-sep" />
+  
+  <div class="post">
+  <div class="post-title">
     <a href="https://goodbsw.github.io/programming/product_sum/" title="Product_sum">
       <img src="/images/post-title-icon.png" />
       <div class="post-meta">

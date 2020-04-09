@@ -8,10 +8,19 @@
     <language>en-us</language>
     <managingEditor>goodbsw@gmail.com (Heungkyu)</managingEditor>
     <webMaster>goodbsw@gmail.com (Heungkyu)</webMaster>
-    <lastBuildDate>Tue, 07 Apr 2020 17:11:31 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 09 Apr 2020 13:19:05 +0900</lastBuildDate>
     
 	<atom:link href="https://goodbsw.github.io/categories/algoexpert/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Binary_search</title>
+      <link>https://goodbsw.github.io/programming/binary_search/</link>
+      <pubDate>Thu, 09 Apr 2020 13:19:05 +0900</pubDate>
+      <author>goodbsw@gmail.com (Heungkyu)</author>
+      <guid>https://goodbsw.github.io/programming/binary_search/</guid>
+      <description>1. Code func BinarySearch(array []int, target int) int { return helper(array, target, 0, len(array)-1) } func helper(array []int, target, left, right int) int { if left &amp;gt; right { return -1 } middle := (left + right) / 2 potentialMatch := array[middle] if target == potentialMatch { return middle } else if target &amp;gt; potentialMatch { return helper(array, target, middle+1, right) } return helper(array, target, left, middle-1) } 2. Conceptual Overview Time Complexity: O(log(n))  Time complexity of using binary search algorithms is O(log(n)) because we traverse the half of the array when the target isn&amp;rsquo;t found at the given half.</description>
+    </item>
     
     <item>
       <title>Product_sum</title>
